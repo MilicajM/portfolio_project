@@ -282,6 +282,19 @@
         <br />
         <h2>Latest Post</h2>
         <hr />
+        {%for blog in blogs.all %}
+        <a href=""><h3>{{blog.title}}</h3></a>
+        {{blog.pub_date_pretty}}
+        <br />
+        <img
+          class="img_fluid"
+          src="{{blog.image.url}}"
+          height="200"
+          width="300"
+        />
+        <br />
+        <p>{{blog.summary}}</p>
+        {%endfor%}
       </div>
     </main>
 

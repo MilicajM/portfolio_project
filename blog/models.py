@@ -13,11 +13,12 @@ class Blog(models.Model):
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
 
+    # name that django admin will name itself
+    def __str__(self):
+        return self.title
 
-# add the blog app
+    def summary(self):
+        return self.body[:100]
 
-# create a migration
-
-# migrate
-
-# add to the admin
+    def pub_date_pretty(self):
+        return self.pub_date.strftime('%b %e %Y')
